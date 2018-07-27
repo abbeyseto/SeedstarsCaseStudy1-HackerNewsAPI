@@ -40,7 +40,7 @@ let page = 0;
             const results = data.articles;
 
             htmlContent = '<ul>' + results.map(news => `<li class="article"> <h2><a href="${news.url}">${news.title}</a></h2><sub>Published on: ${(new Date(news.publishedAt)).toUTCString()}</sub><br><p>${news.description}</p>
-            <p align="right">Source: ${news[0]} </p></li>`
+            <p align="right">Source: ${news.source.name} </p></li>`
             ).join('') + '</ul>';
         } else {
             htmlContent = `<div class="error-no-articles">No articles available</div>`;

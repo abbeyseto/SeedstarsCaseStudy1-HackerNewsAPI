@@ -37,6 +37,13 @@ body {
     text-align: center;
 }
 
+.masthead h4 {
+    color: #ffffff;
+    font-weight: normal;
+    margin: 0;
+    margin-bottom: 0.1em;
+    text-align: center;
+}
 /*** Search Form ***/
 #search-form {
     display: flex;
