@@ -139,15 +139,7 @@ ul {
 
 
 /*** Error State Styling ***/
-.error-no-image {
-    background: url(../images/icon-no-image.png) no-repeat 50% top;
-    margin-bottom: 3em;
-    padding-top: 8em;
-    text-align: center;
-}
-
 .error-no-articles {
-    background: url('../images/icon-no-articles.png') no-repeat 50% top;
     margin-top: 3em;
     padding-top: 8em;
     text-align: center;
@@ -172,8 +164,9 @@ ul {
   border-right: 16px solid green;
   border-bottom: 16px solid red;
   border-left: 16px solid pink;
-  width: 120px;
-  height: 120px;
+  width: 70px;
+  height: 70px;
+  margin: 0 auto;
   -webkit-animation: spin 2s linear infinite;
   animation: spin 2s linear infinite;
 }

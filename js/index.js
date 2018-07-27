@@ -53,8 +53,9 @@ let page = 0;
     }
 
     $(window).scroll(function () {
+        $('.loader').delay(5000).fadeIn(500);
         if ($(window).scrollTop() + $(window).height() === $(document).height()) {
-            $('.loader').delay(10000).fadeIn(500);
+            $('.loader').delay(5000).fadeIn(500);
            // var new_div = '<div class="new_block"><h2>Page ' + page + '</h2></div>';
             //$('#response-container').delay(5000).append(new_div);
             $('#response-container').append(getData());
