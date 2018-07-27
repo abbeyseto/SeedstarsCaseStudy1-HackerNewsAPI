@@ -24,6 +24,9 @@ body {
 .masthead {
     background: #2e3d49;
     padding: 2em 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
 }
 
 .masthead h1 {
@@ -65,7 +68,7 @@ body {
 
 /*** Response Container ***/
 #response-container {
-    margin-top: 2em;
+    margin-top: 30%;
     overflow-y: auto;
 }
 

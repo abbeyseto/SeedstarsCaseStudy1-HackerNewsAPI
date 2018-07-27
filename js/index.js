@@ -53,12 +53,9 @@ let page = 0;
     }
 
     $(window).scroll(function () {
-
         if ($(window).scrollTop() + $(window).height() === $(document).height()) {
-            //setInterval(alert('Next Page is loading'), 5000);
-            //setTimeout(($('.loader').show()), 5000);
-            var new_div = '<div class="new_block"><h2>Page ' + page + '</h2></div>';
-            $('#response-container').delay(5000).append(new_div);
+           // var new_div = '<div class="new_block"><h2>Page ' + page + '</h2></div>';
+            //$('#response-container').delay(5000).append(new_div);
             $('#response-container').append(getData());
         }
     });
