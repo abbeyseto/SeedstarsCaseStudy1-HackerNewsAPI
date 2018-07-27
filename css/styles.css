@@ -103,7 +103,7 @@ ul {
 }
 
 .article {
-    background: url('../images/icon-article.png'), #ffffff;
+    background: #ffffff;
     background-position: 1.5em 1.2em;
     background-repeat: no-repeat;
     background-size: 1.8em;
@@ -186,4 +186,26 @@ ul {
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+
+@media only screen and (max-width: 600px) {
+    #search-form {
+    display: grid;
+    padding: 2em;
+}
+#submit-btn {
+    width: 90%;
+    margin: 10px;
+}
+.masthead {
+    padding: 0.5em;
+}
+#search-form {
+    display: grid;
+    padding: 0.5em;
+}
+#response-container {
+    margin-top: 180px;
+}
 }

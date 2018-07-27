@@ -2,6 +2,7 @@
 let page = 0;
 
 (function () {
+    $('.loader').hide();
     const form = document.querySelector('#search-form');
     const searchField = document.querySelector('#search-keyword');
     let searchedForText;
@@ -41,7 +42,6 @@ let page = 0;
             htmlContent = '<ul>' + results.map(news => `<li class="article"> <h2><a href="${news.url}">${news.title}</a></h2><sub>Published on: ${(new Date(news.publishedAt)).toUTCString()}</sub><br><p>${news.description}</p>
             <p align="right">Source: ${news[0]} </p></li>`
             ).join('') + '</ul>';
-
         } else {
             htmlContent = `<div class="error-no-articles">No articles available</div>`;
         }
@@ -54,9 +54,10 @@ let page = 0;
 
     $(window).scroll(function () {
         if ($(window).scrollTop() + $(window).height() === $(document).height()) {
+            $('.loader').delay(10000).fadeIn(500);
            // var new_div = '<div class="new_block"><h2>Page ' + page + '</h2></div>';
             //$('#response-container').delay(5000).append(new_div);
             $('#response-container').append(getData());
-        }
+    }
     });
 })();

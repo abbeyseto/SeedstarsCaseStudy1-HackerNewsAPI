@@ -13,12 +13,12 @@
 <body>
 
     <header class="masthead">
-        <h1>What are you interested in today?</h1>
+        <h1>Hacker News Search</h1>
 
         <div class="site-container">
             <form id="search-form" action="#">
                 <label for="search-keyword" class="visuallyhidden">What are you interested in today?</label>
-                <input id="search-keyword" type="text" name="search-keyword" placeholder="e.g. Android">
+                <input id="search-keyword" type="text" name="search-keyword" placeholder="e.g. Android or Click Submit for General Search">
                 <input id="submit-btn" type="submit" value="Submit">
             </form>
         </div>
@@ -26,7 +26,7 @@
 
     <div class="site-container">
         <div id="response-container"></div>
-        <div class="loader" hidden></div>
+        <div class="loader">Loading...</div>
     </div>
     <script src="js/jquery.js"></script>
     <script src="js/index.js"></script>
