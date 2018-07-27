@@ -1,6 +1,7 @@
 /* eslint-env jquery */
 let page = 0;
-
+let count = 0;
+let newCount = 0;
 (function () {
     $('.loader').hide();
     const form = document.querySelector('#search-form');
@@ -22,15 +23,16 @@ let page = 0;
     });
 
     function getData() {
-        page++;
+        ++page;
         var url = 'https://newsapi.org/v2/everything?sources=hacker-news&q=' + `${searchedForText}` + '&apiKey=816734caecd74eb08f84b8c38cf27f6c&page=' + page;
-
-        $.ajax({
-            url: url,
-            method: 'GET',
-        }).done(addArticles).fail(function (err) {
-            throw err;
-        });
+        setTimeout(function () {
+            $.ajax({
+                url: url,
+                method: 'GET',
+            }).done(addArticles).fail(function (err) {
+                throw err;
+            });
+        }, 500);
     }
 
     function addArticles(data) {
@@ -42,9 +44,11 @@ let page = 0;
             htmlContent = '<ul>' + results.map(news => `<li class="article"> <h2><a href="${news.url}">${news.title}</a></h2><sub>Published on: ${(new Date(news.publishedAt)).toUTCString()}</sub><br><p>${news.description}</p>
             <p align="right">Source: ${news.source.name} </p></li>`
             ).join('') + '</ul>';
+            count++;
         } else {
             htmlContent = `<div class="error-no-articles">No articles available</div>`;
         }
+        responseContainer.insertAdjacentHTML('beforeend', '<h3>Page: <span  id="count">' + count + '</Span></h3>');
         responseContainer.insertAdjacentHTML('beforeend', htmlContent);
     }
     function requestError(e, part) {
@@ -52,13 +56,28 @@ let page = 0;
         responseContainer.insertAdjacentHTML('beforeend', `<p class="network-warning error-${part}">Oh no! There was an error making a request for the ${part}.</p>`);
     }
 
-    $(window).scroll(function () {
-        $('.loader').delay(5000).fadeIn(500);
-        if ($(window).scrollTop() + $(window).height() === $(document).height()) {
+    /*$(window).scroll(function () {
+        //$('.loader').delay(5000).fadeIn(500);
+        console.log(window.scrollY);
+        console.log((document.getElementById('main').scrollHeight));
+        if ((document.getElementById('main').scrollHeight)  === window.scrollY ) {
             $('.loader').delay(5000).fadeIn(500);
            // var new_div = '<div class="new_block"><h2>Page ' + page + '</h2></div>';
             //$('#response-container').delay(5000).append(new_div);
             $('#response-container').append(getData());
     }
+});
+*/
+
+    $(window).scroll(function () {
+        console.log(count);
+        console.log(page);
+        if ($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
+            $('.loader').delay(1000).fadeIn(500);
+            if (count === page) {
+                $('#response-container').append(getData());
+                //$(window).unbind('scroll');
+            }
+        }
     });
 })();
