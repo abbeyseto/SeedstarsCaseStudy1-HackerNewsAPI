@@ -75,7 +75,7 @@ body {
 
 /*** Response Container ***/
 #response-container {
-    margin-top: 30%;
+    margin-top: 33%;
     overflow-y: auto;
 }
 
@@ -206,6 +206,6 @@ ul {
     padding: 0.5em;
 }
 #response-container {
-    margin-top: 75%;
+    margin-top: 83%;
 }
 }
